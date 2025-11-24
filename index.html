@@ -74,6 +74,26 @@
             border-color: var(--color-secondary); 
         }
 
+        .color-palette {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+            border-color: #333;
+        }
+
         .main-content-wrapper {
             display: flex;
             gap: 25px;
@@ -216,7 +236,19 @@
             <button onclick="pasteText()" title="Pegar">Pegar</button>
             <button onclick="undoText()" title="Deshacer">Deshacer</button>
             <button onclick="redoText()" title="Rehacer">Rehacer</button>
-            <input type="color" title="Color del texto" onchange="execCmd('foreColor', this.value)">
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: #000000;" onclick="changeTextColor('#000000')" title="Negro"></div>
+                <div class="color-swatch" style="background-color: #FF0000;" onclick="changeTextColor('#FF0000')" title="Rojo"></div>
+                <div class="color-swatch" style="background-color: #00FF00;" onclick="changeTextColor('#00FF00')" title="Verde"></div>
+                <div class="color-swatch" style="background-color: #0000FF;" onclick="changeTextColor('#0000FF')" title="Azul"></div>
+                <div class="color-swatch" style="background-color: #FFFF00;" onclick="changeTextColor('#FFFF00')" title="Amarillo"></div>
+                <div class="color-swatch" style="background-color: #FF00FF;" onclick="changeTextColor('#FF00FF')" title="Magenta"></div>
+                <div class="color-swatch" style="background-color: #00FFFF;" onclick="changeTextColor('#00FFFF')" title="Cian"></div>
+                <div class="color-swatch" style="background-color: #FFA500;" onclick="changeTextColor('#FFA500')" title="Naranja"></div>
+                <div class="color-swatch" style="background-color: #800080;" onclick="changeTextColor('#800080')" title="Púrpura"></div>
+                <div class="color-swatch" style="background-color: #FFC0CB;" onclick="changeTextColor('#FFC0CB')" title="Rosa"></div>
+            </div>
+            <input type="color" title="Color personalizado" onchange="execCmd('foreColor', this.value)">
         </div>
         
         <div class="main-content-wrapper">
